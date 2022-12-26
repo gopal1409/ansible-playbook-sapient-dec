@@ -2,7 +2,7 @@
 ##3any playbook start with three dash
 - 
 ##the minues sign indicate a list of items
-  hosts: all
+  hosts: "{{HOSTS}}"
   #gather_facts: false
   #3it is the target where my playbook will run
   #varaibles

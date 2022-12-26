@@ -32,6 +32,12 @@
       notify: MOTD Change in Redhat  
       when: ansible_distribution == "RedHat"
         ###to call a varaible in python Jinja2
+    - name: ansible built in reboot module 
+      reboot:
+        msg: reboot the system 
+        pre_reboot_delay: 5
+        post_reboot_delay: 10
+        test_command: "whoami"
   handlers:
       - name: MOTD Change in Ubuntu
         debug: 

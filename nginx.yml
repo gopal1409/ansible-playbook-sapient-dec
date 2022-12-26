@@ -27,5 +27,5 @@
         #src: /tmp/x.txt
         content: "{{motd_redhat}}"
         dest: /etc/motd
-      when: ansible_distribution == "RedhHat"
+      when: ansible_distribution == "RedHat"
         ###to call a varaible in python Jinja2

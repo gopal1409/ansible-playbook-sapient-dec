@@ -2,7 +2,7 @@
 ##3any playbook start with three dash
 - 
 ##the minues sign indicate a list of items
-  hosts: client
+  hosts: redhat
   #gather_facts: false
   #3it is the target where my playbook will run
   #varaibles
@@ -20,4 +20,4 @@
         var: 'ansible_facts.eth1.features'
     - name: filter value 
       debug:
-        msg: "{{(ansible_facts.eth1.features | dict2items | selectattr ('value','match','on'))}}"
+        msg: "{{(ansible_facts.eth1.features | dict2items | selectattr ('value','match','on')) }}"

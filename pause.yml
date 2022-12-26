@@ -9,8 +9,7 @@
   #in json the indentation happen with curl braces where as in ansible the indentation happen with two spaces
   vars:
     #variable need to define in key value format
-    vars:
-      wait_seconds: 10
+    
    
   ##we need to define tasks
   #to define task it start with task block and below the name of the task
@@ -18,7 +17,7 @@
     - name: pausing a task 
     #python dictionary
       ansible.builtin.pause:
-        seconds: "{{ wait_seconds |  int}}"
+        seconds: 10
     - name: message 
       debug:
         msg: "the end"

@@ -18,3 +18,4 @@
     #python dictionary
       ansible.builtin.debug:
         msg: "testing debug module"
+        msg: System {{ inventory_hostname }}

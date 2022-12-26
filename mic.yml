@@ -18,7 +18,6 @@
     #python dictionary
       ansible.builtin.debug:
         msg: "testing debug module"
-        msg: System {{ inventory_hostname }}
      - name: configure message of the day for ubuntu system 
     #python dictionary
        ansible.builtin.debug:

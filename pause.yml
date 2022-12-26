@@ -10,7 +10,7 @@
   vars:
     #variable need to define in key value format
     vars:
-      wait_second: 10
+      wait_seconds: 10
    
   ##we need to define tasks
   #to define task it start with task block and below the name of the task
@@ -18,7 +18,7 @@
     - name: pausing a task 
     #python dictionary
       ansible.builtin.pause:
-        seconds: "{{wait_second |  int}}"
+        seconds: "{{ wait_seconds |  int}}"
     - name: message 
       debug:
         msg: "the end"

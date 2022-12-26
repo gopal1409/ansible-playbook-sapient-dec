@@ -9,7 +9,7 @@
   #in json the indentation happen with curl braces where as in ansible the indentation happen with two spaces
   vars:
     #variable need to define in key value format
-    motd_ubuntu: "Welcome to Ubuntu Linux handler added\n"
+    motd_ubuntu: "Welcome to Ubuntu Linux \n"
     motd_redhat: "Welcome to Redhat Linux handler added\n"
   ##we need to define tasks
   #to define task it start with task block and below the name of the task

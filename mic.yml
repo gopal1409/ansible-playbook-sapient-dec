@@ -24,5 +24,6 @@
         msg: System {{ inventory_hostname }}
     - name: checking user name and key auth
       debug:
+        msg:
         - "Provisioning based on YOUR_KEY which is: {{ lookup('ansible.builtin.env', 'YOUR_KEY') }}"
         - "These servers were built using the password of '{{ password_used }}'. Please retain this for later use."

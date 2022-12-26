@@ -32,7 +32,7 @@
       notify: MOTD Change in Redhat  
       when: ansible_distribution == "RedHat"
         ###to call a varaible in python Jinja2
-    handlers:
+  handlers:
       - name: MOTD Change in Ubuntu
         debug: 
           msg: changes in ubuntu

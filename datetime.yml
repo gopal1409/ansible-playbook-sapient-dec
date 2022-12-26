@@ -17,8 +17,8 @@
     - name: configure message of the day for ubuntu system 
     #python dictionary
       ansible.builtin.debug:
-        msg: ansible_date_time
+        var: ansible_date_time
     - name: configure message of the day for ubuntu system 
     #python dictionary
       ansible.builtin.debug:
-        msg: ansible_date_time.iso8601
+        var: ansible_date_time.iso8601

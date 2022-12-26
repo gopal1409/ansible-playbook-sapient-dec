@@ -20,4 +20,4 @@
         var: 'ansible_facts.eth1.features'
     - name: filter value 
       debug:
-        msg: "{{(ansible_facts.eth1.features | dic2items | selectattr ('value','match','on'))}}"
+        msg: "{{(ansible_facts.eth1.features | dict2items | selectattr ('value','match','on'))}}"

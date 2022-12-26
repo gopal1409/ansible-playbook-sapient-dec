@@ -38,5 +38,5 @@
           msg: changes in ubuntu
       - name: MOTD Change in Redhat
           debug: 
-          msg: changes in redhat 
+            msg: changes in redhat 
       

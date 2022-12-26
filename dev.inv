@@ -1,0 +1,9 @@
+client
+[db]
+db1 ansible_port=2222
+db2
+db3
+[worker]
+w1
+w2
+12.12.12.12

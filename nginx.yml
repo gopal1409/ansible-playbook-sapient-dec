@@ -2,7 +2,7 @@
 ##3any playbook start with three dash
 - 
 ##the minues sign indicate a list of items
-  host: all
+  hosts: all
   #3it is the target where my playbook will run
   #varaibles
   #in json the indentation happen with curl braces where as in ansible the indentation happen with two spaces

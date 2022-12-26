@@ -1,0 +1,20 @@
+---
+##3any playbook start with three dash
+- 
+##the minues sign indicate a list of items
+  hosts: all
+  #gather_facts: false
+  #3it is the target where my playbook will run
+  #varaibles
+  #in json the indentation happen with curl braces where as in ansible the indentation happen with two spaces
+  vars:
+    #variable need to define in key value format
+    motd_ubuntu: "Welcome to Ubuntu Linux handler added\n"
+    motd_redhat: "Welcome to Redhat Linux handler added\n"
+  ##we need to define tasks
+  #to define task it start with task block and below the name of the task
+  tasks:
+    - name: configure message of the day for ubuntu system 
+    #python dictionary
+      ansible.builtin.debug:
+        msg: "testing debug module"

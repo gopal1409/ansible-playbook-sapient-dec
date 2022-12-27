@@ -58,6 +58,11 @@
         src: templates/index.html.j2
         dest: /usr/share/nginx/html
         mode: 0644
+    - name: add port 80 for redhat system
+      ansible.posix.firewalld:
+        service: https
+        permanent: yes
+        state: enabled
     - name: restart nginx 
       service:
         name: nginx 

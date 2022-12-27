@@ -56,11 +56,11 @@
     - name: template for test page 
       template:
         src: templates/index.html.j2
-        dest: /usr/share/nginx/html
+        dest: /usr/share/nginx/index.html
         mode: 0644
     - name: add port 80 for redhat system
       ansible.posix.firewalld:
-        service: https
+        service: http
         permanent: yes
         state: enabled
       when: ansible_distribution == "RedHat"

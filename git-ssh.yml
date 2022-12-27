@@ -19,4 +19,4 @@
       ansible.builtin.git:
         repo: "{{repo}}"
         dest: "{{dest}}"
-        key: "{{sshkey}}"
+        key_file: "{{sshkey}}"

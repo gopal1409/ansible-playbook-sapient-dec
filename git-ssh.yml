@@ -1,0 +1,22 @@
+---
+
+- 
+
+  hosts: client 
+  
+  vars:
+    repo: git@github.com:gopal1409/sapient-chatapp.git
+    dest: /tmp/devops/
+    sshkey: "~/.ssh/id_rsa"
+
+  tasks:
+    - name: ensure git package is installed 
+      apt:
+        name: git 
+        state: present 
+        update_cache: true
+    - name: checkout git repo 
+      ansible.builtin.git:
+        repo: "{{repo}}"
+        dest: "{{dest}}"
+        key: "{{sshkey}}"

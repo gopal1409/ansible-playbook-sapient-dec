@@ -1,0 +1,15 @@
+---
+
+- 
+
+  hosts: ansiblemaster
+  
+  vars:
+    log_file: "/var/log/message"
+    dump_dir: "/tmp"
+
+  tasks:
+    - name: ensure git package is installed 
+      fetch:
+        src: "{{log_file}}"
+        dest: "{{dump_dir}}"

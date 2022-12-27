@@ -2,7 +2,7 @@
 
 - 
 
-  hosts: client 
+  hosts: controller
   
   vars:
     repo: git@github.com:gopal1409/sapient-chatapp.git

@@ -1,2 +1,3 @@
 client
 redhat
+controller ansible_connection=localhost

@@ -12,12 +12,14 @@
         state: present
         key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
       when: ansible_distribution == "RedHat"
+      tags: rpmkey 
     - name: download the rpm file to update 
       yum:
         name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
         update_cache: yes 
         state: latest
       when: ansible_distribution == "RedHat"  
+      tags: rpm 
     - name: update the ubuntu system 
       apt: 
         update_cache: yes 
@@ -26,11 +28,13 @@
       package:
         name: nginx 
         state: latest 
+      tags: package 
     - name: patch my redhat system 
       yum: 
         name: patch 
         update_cache: yes
-        state: latest 
+        state: latest
+      tags: patch 
       when: ansible_distribution == "RedHat"
     - name: create a directory called as site available 
       file:

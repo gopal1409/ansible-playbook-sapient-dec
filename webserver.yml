@@ -32,3 +32,34 @@
         update_cache: yes
         state: latest 
       when: ansible_distribution == "RedHat"
+    - name: create a directory called as site available 
+      file:
+        path: /etc/nginx/sites-available
+        state: directory #file link
+    - name: create another directory called as site enable 
+      file:
+        path: /etc/nginx/sites-enabled
+        state: directory
+    - name: copy the default config 
+      copy:
+        src: files/nginx-default.conf
+        dest: /etc/nginx/sites-available/default
+    - name: create a symb link from siteavaiale to site enable 
+      file:
+        src: /etc/nginx/sites-available/default 
+        dest: /etc/nginx/sites-enabled/default 
+        state: link 
+    - name: create an nginx html directory 
+      file: 
+        path: /usr/share/nginx/html
+        state: directory 
+    - name: template for test page 
+      template:
+        src: templates/index.html.j2
+        dest: /usr/share/nginx/html
+        mode: 0644
+    - name: restart nginx 
+      service:
+        name: nginx 
+        state: restarted
+        

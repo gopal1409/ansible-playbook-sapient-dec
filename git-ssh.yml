@@ -6,7 +6,7 @@
   
   vars:
     repo: git@github.com:gopal1409/sapient-chatapp.git
-    dest: /tmp/devops
+    dest: /root/springchat
     sshkey: "~/.ssh/id_rsa"
 
   tasks:

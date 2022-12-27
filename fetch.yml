@@ -5,7 +5,7 @@
   hosts: all
   
   vars:
-    log_file: "/var/log/messages"
+    log_file: "/var/log/cloud-init.log"
     log_file_ubuntu: "/var/log/syslog"
     dump_dir: "/tmp"
 

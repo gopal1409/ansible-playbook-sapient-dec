@@ -5,11 +5,18 @@
   hosts: all
   
   vars:
-    log_file: "/var/log/message"
+    log_file: "/var/log/messages"
+    log_file_ubuntu: "/var/log/syslog"
     dump_dir: "/tmp"
 
   tasks:
-    - name: ensure git package is installed 
+    - name: get the log from redhat
       fetch:
         src: "{{log_file}}"
         dest: "{{dump_dir}}"
+      when: ansible_distribution == 'RedHat'
+    - name: get the log from ubuntu
+      fetch:
+        src: "{{log_file_ubuntu}}"
+        dest: "{{dump_dir}}"
+      when: ansible_distribution == 'Ubuntu'

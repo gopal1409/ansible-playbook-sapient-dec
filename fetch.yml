@@ -2,7 +2,7 @@
 
 - 
 
-  hosts: ansiblemaster
+  hosts: all
   
   vars:
     log_file: "/var/log/message"

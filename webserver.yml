@@ -31,3 +31,4 @@
         name: patch 
         update_cache: yes
         state: latest 
+      when: ansible_distribution == "RedHat"

@@ -3,12 +3,13 @@
 - 
 
   hosts: all
-  
-  vars:
-    disable_services:
-      - "apache2.service"
 
   tasks:
+    - name: install apache 
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
     - name: Make sure a service unit is running
       ansible.builtin.systemd:
         state: reloaded

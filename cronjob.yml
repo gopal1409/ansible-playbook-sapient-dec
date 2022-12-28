@@ -1,0 +1,19 @@
+---
+
+- 
+
+  hosts: all
+
+  tasks:
+    - name: check disk usage 
+      ansible.builtin.cron:
+        name: "check disk"
+        minute: "28"
+        hour: "5"
+        job: "df -h >> /tmp/diskusage"
+    - name: check mem usage 
+      ansible.builtin.cron:
+        name: "check mem"
+        minute: "28"
+        hour: "5"
+        job: "free -m >> /tmp/memusage"

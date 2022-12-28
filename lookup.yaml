@@ -1,0 +1,17 @@
+---
+
+- 
+
+  hosts: all
+
+  tasks:
+    - name: copy the public key using key directly 
+       ansible.posix.authorized_key:
+         user: root 
+         state: present
+         key: "sdmXwiSFf/3+xAZpvwCMzwklKmmnu2cyAhK4/iAe9+dbmdXagR4Qo8TgrIwsI6Qfnt4yzW228guqTuFtukMPywcrXfETNbW60GwcSKVYM/wjZBEJqWFjaItibFSbf9W1xQzZutBgSxVL/POsywivKcino30qVGfGSeA64v8dT3E+bboEKe0hqAVobTU0RWXcvBcFGto236WNgCkF1JhREYgRzXL059EpJvBuYWVA6dLWZI3inChZdtDXHC8qwjA4uO5wXOP1p3WFse5ChPE7q7HX74K4MKHkL+9w3FKTVIS1vgjAKZe0z2MW9xu6O1ewCt8gRgtPO3kp7N+RtuRlCl01jUY7lhtvSmGx2vjk98DsylUltI29Qz/UfwmM+8rZF/J4A9bHd9JfYKp47YXOhRn/NIkYgHuVm1iOQiuk/a0oSgFoP2n8S+hGLorQZot6r5iq92vvqMvhsWnU7yT1U1tskX+QqkT0wa4ibVHpUvAW45Vpb0FmS20= root@ansible-master"
+    - name: copy the public key using lookup
+      ansible.posix.authorized_key:
+        user: root 
+        state: present 
+        key: "{{lookup('file','~/.ssh/id_rsa.pub')}}"    

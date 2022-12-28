@@ -18,4 +18,4 @@
         enabled: true
         state: stopped
       when: "item in services"
-      with_items: "{{disable_services}}"
+      with_items: '{{disable_services}}'

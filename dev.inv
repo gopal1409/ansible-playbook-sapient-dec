@@ -1,2 +1,2 @@
 client
-ansible_master  ansible_connection=localhost
+ansible-master  ansible_connection=localhost

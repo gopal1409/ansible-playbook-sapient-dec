@@ -11,7 +11,7 @@
   tasks:
     - name: Make sure a service unit is running
       ansible.builtin.systemd:
-        state: status
+        state: reloaded
         name: apache2
 
     - name: Print service facts

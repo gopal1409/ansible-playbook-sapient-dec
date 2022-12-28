@@ -2,7 +2,7 @@
 
 - 
 
-  hosts: ansiblemaster
+  hosts: ansible-master
   become: true
   tasks:
     - name: generate host file in /etc/myhost

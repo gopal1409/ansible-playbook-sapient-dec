@@ -16,4 +16,4 @@
         name: "check mem"
         minute: "28"
         hour: "5"
-        job: "free -m >> /tmp/memusage"
+        job: "free -m >> /tmp/memusage" 

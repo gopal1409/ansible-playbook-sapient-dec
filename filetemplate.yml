@@ -1,0 +1,20 @@
+---
+
+- 
+
+  hosts: all
+
+  tasks:
+    - name: install apache 
+      template: 
+        src: templatetest.sh.j2
+        dest: /tmp/templatetest.sh
+        owner: root 
+        group: root 
+        mode: 0755
+    - name: execute the script
+      become: true 
+      shell:
+        /tmp/templatetest.sh
+      register: scroutput
+    - debug: var=scroutput.stdout_line

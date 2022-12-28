@@ -14,4 +14,4 @@
 
     - name: Print returned information
       ansible.builtin.debug:
-        msg: "{{ slurpfilew['content'] | b64decode }}"
+        msg: "{{ slurpfile['content'] | b64decode }}"

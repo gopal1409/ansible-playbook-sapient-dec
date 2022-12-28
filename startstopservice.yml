@@ -9,6 +9,11 @@
       - "apache2.service"
 
   tasks:
+    - name: Make sure a service unit is running
+      ansible.builtin.systemd:
+        state: status
+        name: apache2
+
     - name: Print service facts
       ansible.builtin.debug:
          var: ansible_facts.services

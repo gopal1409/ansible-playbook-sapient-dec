@@ -1,0 +1,14 @@
+---
+
+- 
+
+  hosts: all
+
+  tasks:
+    - name: generate host file in /etc/myhost
+      template: 
+        src: templates/host.j2
+        dest: /etc/hosts
+        owner: root 
+        group: root 
+        mode: '0644'

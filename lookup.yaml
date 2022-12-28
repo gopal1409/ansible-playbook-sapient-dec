@@ -23,3 +23,6 @@
     - name: use in a loop
       debug: msg="MX record for gmail.com {{ item }}"
       with_items: "{{ lookup('dig', 'gmail.com./MX', wantlist=True) }}"
+    - name: lookup in url 
+      debug: msg="MX record for gmail.com {{ item }}"
+      with_items: "{{ lookup('url', 'gmail.com./MX', wantlist=True) }}"

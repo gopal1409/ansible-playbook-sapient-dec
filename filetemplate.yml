@@ -17,4 +17,4 @@
       shell:
         /tmp/templatetest.sh
       register: scroutput
-    - debug: var=scroutput.stdout_line
+    - debug: var=scroutput.stdout_lines

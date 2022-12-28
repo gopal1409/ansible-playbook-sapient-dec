@@ -14,7 +14,7 @@
 
     - name: Print service facts
       ansible.builtin.service: 
-        name: "{{items}}"
+        name: "{{item}}"
         enabled: true
         state: stopped
       when: "item in services"

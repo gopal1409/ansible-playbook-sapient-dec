@@ -3,12 +3,12 @@
 - 
 
   hosts: all
-
+  become: true
   tasks:
     - name: generate host file in /etc/myhost
       template: 
         src: templates/host.j2
-        dest: /etc/hosts
+        dest: /etc/myhost
         owner: root 
         group: root 
         mode: '0644'

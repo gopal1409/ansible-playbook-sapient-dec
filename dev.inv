@@ -1,4 +1,2 @@
 client
-[all:vars]
-ansible_connection=ssh 
-ansible_user=root 
+ansible_master  ansible_connection=localhost

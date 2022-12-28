@@ -2,13 +2,13 @@
 
 - 
 
-  hosts: all
+  hosts: ansiblemaster
   become: true
   tasks:
     - name: generate host file in /etc/myhost
       template: 
         src: templates/host.j2
-        dest: /etc/myhost
+        dest: /root/ansible-playbook-sapient-dec/orphan
         owner: root 
         group: root 
         mode: '0644'

@@ -8,7 +8,7 @@
     - name: generate host file in /etc/myhost
       template: 
         src: templates/host.j2
-        dest: /root/ansible-playbook-sapient-dec/orphan
+        dest: /tmp/host
         owner: root 
         group: root 
         mode: '0644'

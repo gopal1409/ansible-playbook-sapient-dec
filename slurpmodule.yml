@@ -1,0 +1,17 @@
+---
+
+- 
+
+  hosts: all
+  
+  vars:
+
+  tasks:
+    - name: read a file from remote cpuinfo
+      ansible.builtin.slurp:
+        src: /proc/cpuinfo
+      register: slurpfile
+
+    - name: Print returned information
+      ansible.builtin.debug:
+        msg: "{{ slurpfilew['content'] | b64decode }}"

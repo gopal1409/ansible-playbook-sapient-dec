@@ -1,4 +1,7 @@
 demo.orphan.com ansible_host=40.76.179.182
+demo1.orphan.com ansible_host=40.76.179.183
+demo2.orphan.com ansible_host=40.76.179.184
+demo3.orphan.com ansible_host=40.76.179.185
 [all:vars]
 ansible_connection=ssh 
 ansible_user=root 

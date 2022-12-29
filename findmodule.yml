@@ -5,7 +5,7 @@
   hosts: all
   become: true
   vars:
-    mypath: "/tmp"
+    mypath: "/tmp/"
   tasks:
     - name: search for file 
       find:
@@ -13,7 +13,7 @@
         hidden: true 
         recurse: true 
         file_type: any 
-        patterns: '*.txt'
+        #patterns: '*.txt'
       register: found_text_file 
     - name: print those text file
       debug:

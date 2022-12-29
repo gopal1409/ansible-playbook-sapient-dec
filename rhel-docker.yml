@@ -1,35 +1,37 @@
 ---
-
-- 
-
+- name: install Docker
   hosts: redhat
- 
+  become: true
   tasks:
-    - name: ansible set fact for distribution
+    - name: set mydistribution
       ansible.builtin.set_fact:
-        mydistribution: "{{'rhel' if (ansible_distribution == 'RedHat') else (ansible_distribution | lower)}}"
-    - name: add signing key 
-      ansible.builtin.rpm_key:    
-        key: "https://download.docker.com/linux/{{mydistribution}}/gpg"
-        state: present 
-    - name: add the repo in the list 
+        mydistribution: "{{ 'rhel' if (ansible_distribution == 'Red Hat Enterprise Linux') else (ansible_distribution | lower) }}"
+
+    - name: Add signing key
+      ansible.builtin.rpm_key:
+        key: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
+        state: present
+
+    - name: Add repository into repo.d list
       ansible.builtin.yum_repository:
-        name: docker 
-        description: docker repo 
-        baseurl: "https://download.docker.com/linux/{{mydistribution}}/$releasever/$basearch/stable"
-        enabled: true 
-        gpgcheck: true 
-        gpgkey: "https://download.docker.com/linux/{{mydistribution}}/gpg"
-    - name: install docker 
+        name: docker
+        description: docker repository
+        baseurl: "https://download.docker.com/linux/{{ mydistribution }}/$releasever/$basearch/stable"
+        enabled: true
+        gpgcheck: true
+        gpgkey: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
+
+    - name: Install Docker
       ansible.builtin.yum:
         name:
-          - docker-ce 
-          - docker-ce-cli 
-          - containerd.io 
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
         state: latest
-        update_cache: true 
-    - name: after installing we need to start the service 
+        update_cache: true
+
+    - name: Start Docker
       ansible.builtin.service:
         name: "docker"
-        enabled: true 
+        enabled: true
         state: started

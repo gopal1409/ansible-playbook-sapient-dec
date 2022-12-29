@@ -1,0 +1,27 @@
+---
+- 
+  hosts: all
+  
+  vars:
+    #variable need to define in key value format
+    motd_ubuntu: "Welcome to Ubuntu Linux handler added\n"
+    motd_redhat: "Welcome to Redhat Linux handler added\n"
+  ##we need to define tasks
+  #to define task it start with task block and below the name of the task
+  tasks:
+    - name: find the date for ubuntu endpoint 
+    #python dictionary
+      ansible.builtin.debug:
+        var: ansible_date_time
+    - name: show the date of ubuntu endpoint  
+    #python dictionary
+      ansible.builtin.debug:
+        var: ansible_date_time.iso8601
+    - name: find the date for ubuntu ansible controller machine 
+    #python dictionary
+      ansible.builtin.debug:
+        var: ansible_date_time
+    - name: show the date for ansible controller machine in iso format
+    #python dictionary
+      ansible.builtin.debug:
+        var: ansible_date_time.iso8601

@@ -17,8 +17,8 @@
     #python dictionary
       ansible.builtin.debug:
         var: ansible_date_time.iso8601
-        
-        #localhost if your controller machine
+    #the above mentioned task will run fom controller to the remote host machine
+       #once the above mentioned task complete due to delegate the below mentioned task will assign to localhost 
     - name: find the date for ubuntu ansible controller machine 
     #python dictionary
       ansible.builtin.debug:

@@ -18,5 +18,5 @@
       file: 
         path: "{{ item.path }}"
         state: absent 
-      with_items: "{{found_text_file}}"
+      with_items: "{{found_text_file.files}}"
     

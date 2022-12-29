@@ -1,0 +1,10 @@
+---
+
+- 
+
+  hosts: all
+
+  tasks:
+    - name: ansible play to retrive environment varaible in linux
+      ansible.builtin.debug:
+        msg: "{{ansible_env}}"

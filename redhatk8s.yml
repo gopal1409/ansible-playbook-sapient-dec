@@ -1,11 +1,11 @@
 ---
-- name: install Docker
+- 
   hosts: redhat
   become: true
   tasks:
     - name: Create a k8s namespace
       kubernetes.core.k8s:
-        name: testing
+        name: ansiblens
         api_version: v1
         kind: Namespace
         state: present

@@ -1,37 +1,27 @@
----
-- name: install Docker
-  hosts: redhat
-  become: true
+- hosts: IP_ADDRESS
   tasks:
-    - name: set mydistribution
-      ansible.builtin.set_fact:
-        mydistribution: "{{ 'rhel' if (ansible_distribution == 'RedHat') else (ansible_distribution | lower) }}"
-
-    - name: Add signing key
-      ansible.builtin.rpm_key:
-        key: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
-        state: present
-
-    - name: Add repository into repo.d list
-      ansible.builtin.yum_repository:
+    - name: Docker repo
+      yum_repository:
         name: docker
-        description: docker repository
-        baseurl: "https://download.docker.com/linux/centos/docker-ce.repo"
-        enabled: true
-        #gpgcheck: true
-        #gpgkey: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
-
-    - name: Install Docker
-      ansible.builtin.yum:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-        state: latest
-        update_cache: true
-
-    - name: Start Docker
-      ansible.builtin.service:
-        name: "docker"
-        enabled: true
+        description: repo for docker
+        baseurl: https://download.docker.com/linux/centos/7/x86_64/stable/
+        gpgcheck: no
+- name: Installing docker
+      command:
+        cmd: yum install docker-ce --nobest -y
+- name: install python3.6
+      package:
+        name: python36
+        state: present
+- name: Starting and enabling docker service
+      service:
+        name: docker
         state: started
+        enabled: yes
+- name: conf pip for docker
+      pip:
+        name: docker-py
+- name: Pull httpd docker iso
+      docker_image:
+        name: httpd
+        source: pull

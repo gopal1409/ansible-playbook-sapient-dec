@@ -15,12 +15,9 @@
         file_type: any 
         #patterns: '*.txt'
       register: found_text_file 
-    - name: print those text file
-      debug:
-        msg: found_text_file
     - name: remove the collected file 
       file: 
         path: "{{ item.path }}"
         state: absent 
-      with_items: "{{found_text_file }}"
+      with_items: "{{found_text_file}}"
     

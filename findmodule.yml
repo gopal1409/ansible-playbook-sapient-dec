@@ -14,7 +14,7 @@
         recurse: true 
         file_type: any 
       register: found_text_file 
-    - name: remove the collected file 
+    - name: remove the files 
       file: 
         path: "{{ item.path }}"
         state: absent 

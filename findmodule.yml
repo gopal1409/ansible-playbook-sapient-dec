@@ -1,0 +1,21 @@
+---
+
+- 
+
+  hosts: all
+  become: true
+  vars:
+    path: "/tmp"
+  tasks:
+    - name: search for file 
+      find:
+        path: "{{ path }}"
+        hidden: true 
+        recurse: true 
+        file_type: any 
+        patterns: '*.txt'
+      register: found_text_file 
+    - name: print those text file
+      debug:
+        var: found_text_file
+      

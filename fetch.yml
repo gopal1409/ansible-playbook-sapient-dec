@@ -1,6 +1,6 @@
 ---
 
-- 
+- name: fetch play
 
   hosts: all
   

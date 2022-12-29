@@ -17,7 +17,7 @@
       register: found_text_file 
     - name: print those text file
       debug:
-        var: found_text_file
+        msg: found_text_file
     - name: remove the collected file 
       file: 
         path: "{{ item.path }}"

@@ -7,7 +7,7 @@
       ansible.builtin.yum_repository:
         name: docker 
         description: repo for docker 
-        baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+        baseurl: https://download.docker.com/linux/centos/8/x86_64/stable/
         gpgcheck: no
     - name: install docker 
       ansible.builtin.yum:

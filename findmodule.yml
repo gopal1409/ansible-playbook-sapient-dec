@@ -20,7 +20,7 @@
         var: found_text_file
     - name: remove the collected file 
       file: 
-        path: "{{item.mypath}}"
+        path: "{{item.path}}"
         state: absent 
       with_items: "{{found_text_file }}"
     

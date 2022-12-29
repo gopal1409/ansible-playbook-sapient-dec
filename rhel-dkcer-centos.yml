@@ -41,5 +41,4 @@
           - 80
         ports: 
           - 81:80
-    - name: include playbook fetch 
-      ansible.builtin.include: fetch.yml
+    - import_playbook: fetch.yml

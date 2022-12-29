@@ -1,4 +1,5 @@
-- hosts: IP_ADDRESS
+---
+- hosts: redhat
   tasks:
     - name: Docker repo
       yum_repository:
@@ -6,22 +7,22 @@
         description: repo for docker
         baseurl: https://download.docker.com/linux/centos/7/x86_64/stable/
         gpgcheck: no
-- name: Installing docker
+    - name: Installing docker
       command:
         cmd: yum install docker-ce --nobest -y
-- name: install python3.6
+    - name: install python3.6
       package:
         name: python36
         state: present
-- name: Starting and enabling docker service
+    - name: Starting and enabling docker service
       service:
         name: docker
         state: started
         enabled: yes
-- name: conf pip for docker
+    - name: conf pip for docker
       pip:
         name: docker-py
-- name: Pull httpd docker iso
+    - name: Pull httpd docker iso
       docker_image:
         name: httpd
         source: pull

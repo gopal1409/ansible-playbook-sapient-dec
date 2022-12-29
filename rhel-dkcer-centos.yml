@@ -23,8 +23,8 @@
         state: present 
     - name: starting and enabling docker service 
       ansible.builtin.service:
-        name: "docker"
-        enabled: true
+        name: docker
+        enabled: yes
         state: started
     - name: config pip docker 
       pip:

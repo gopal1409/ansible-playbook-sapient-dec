@@ -1,0 +1,10 @@
+---
+
+- 
+
+  hosts: redhat
+ 
+  tasks:
+    - name: ansible set fact for distribution
+      ansible.builtin.set_fact:
+        mydistribution: "{{'rhel' if (ansible_distribution == "RedHat") else (ansible_distribution | lower)}}"

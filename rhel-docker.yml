@@ -13,11 +13,10 @@
         key: "https://download.docker.com/linux/{{mydistribution}}/gpg"
         state: present 
     - name: add the repo in the list 
-      - name: Add repository
-        ansible.builtin.yum_repository:
-          name: docker 
-          description: docker repo 
-          baseurl:"https://download.docker.com/linux/{{mydistribution}}/$releasever/$basearch/stable"
-          enable: true 
-          gpgcheck: true 
-          gpgkey: "https://download.docker.com/linux/{{mydistribution}}/gpg"
+      ansible.builtin.yum_repository:
+        name: docker 
+        description: docker repo 
+        baseurl: "https://download.docker.com/linux/{{mydistribution}}/$releasever/$basearch/stable"
+        enable: true 
+        gpgcheck: true 
+        gpgkey: "https://download.docker.com/linux/{{mydistribution}}/gpg"

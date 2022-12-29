@@ -14,8 +14,8 @@
         logging: 'on' 
     - name: we will enable ufw firewall 
       community.general.ufw:
-      state: enabled
-      policy: "deny"
+        state: enabled
+        policy: "deny"
     - name: add an ufw rule 
       community.general.ufw:
         rule: "allow"

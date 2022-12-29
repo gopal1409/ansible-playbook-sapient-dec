@@ -30,5 +30,5 @@
       with_items: "{{aws_environment}}"
     - name: second method to get environment varaible for aws
       ansible.builtin.debug:
-        msg: "{{(lookup('env','HOME'))}}"
+        msg: "{{ansible_env}}"
       

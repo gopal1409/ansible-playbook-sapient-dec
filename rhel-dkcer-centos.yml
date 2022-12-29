@@ -1,4 +1,5 @@
 ---
+- import_playbook: fetch.yml
 - name: install Docker
   hosts: redhat
   become: true
@@ -41,4 +42,4 @@
           - 80
         ports: 
           - 81:80
-    - import_playbook: fetch.yml
+  

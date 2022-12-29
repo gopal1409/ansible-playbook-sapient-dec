@@ -10,4 +10,4 @@
         msg: "{{ansible_env}}"
     - name: second method to get environment varaible
       ansible.builtin.debug:
-        msg: "{{(lookup('env','HOME'))}}""
+        msg: "{{(lookup('env','HOME'))}}"

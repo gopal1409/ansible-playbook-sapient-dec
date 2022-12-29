@@ -23,15 +23,4 @@
         path: "{{item.mypath}}"
         state: absent 
       with_items: "{{found_text_file }}"
-    - name: search for file deleted
-      find:
-        path: "{{ mypath }}"
-        hidden: true 
-        recurse: true 
-        file_type: any 
-        patterns: '*.txt'
-      register: found_text_file 
-    - name: print those file if found
-      debug:
-        var: found_text_file
-      
+    

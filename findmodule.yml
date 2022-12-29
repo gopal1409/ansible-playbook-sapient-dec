@@ -18,4 +18,9 @@
     - name: print those text file
       debug:
         var: found_text_file
+    - name: remove the collected file 
+      file: 
+        path: "{{item.path}}"
+        state: absent 
+      with_items: "{{found_text_file }}"
       

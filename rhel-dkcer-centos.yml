@@ -37,7 +37,7 @@
       docker_container:
         name: mywebserver 
         image: httpd 
-        expose_ports:
+        exposed_ports:
           - 80
         ports: 
           - 81:80

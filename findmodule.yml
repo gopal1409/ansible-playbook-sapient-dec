@@ -5,11 +5,11 @@
   hosts: all
   become: true
   vars:
-    path: "/tmp"
+    mypath: "/tmp"
   tasks:
     - name: search for file 
       find:
-        path: "{{ path }}"
+        path: "{{ mypath }}"
         hidden: true 
         recurse: true 
         file_type: any 

@@ -1,0 +1,43 @@
+---
+- name: install Docker
+  hosts: redhat
+  become: true
+  tasks:
+    - name: Docker repo
+      ansible.builtin.yum_repository:
+        name: docker 
+        description: repo for docker 
+        baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+        gpgcheck: no
+    - name: install docker 
+      ansible.builtin.yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: latest
+        update_cache: true
+    - name: install python3.9
+      package: 
+        name: python39 
+        state: present 
+    - name: starting and enabling docker service 
+      ansible.builtin.service:
+        name: "docker"
+        enabled: true
+        state: started
+    - name: config pip docker 
+      pip:
+        name: docker-py 
+    - name: pull a docker image 
+      docker_image:
+        name: httpd 
+        source: pull 
+    - name: spin up a container
+      docker_container:
+        name: mywebserver 
+        image: httpd 
+        expose_ports:
+          - 80
+        ports: 
+          - 81:80

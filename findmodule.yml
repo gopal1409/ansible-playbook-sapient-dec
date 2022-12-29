@@ -20,12 +20,12 @@
         var: found_text_file
     - name: remove the collected file 
       file: 
-        path: "{{item.path}}"
+        path: "{{item.mypath}}"
         state: absent 
       with_items: "{{found_text_file }}"
     - name: search for file deleted
       find:
-        path: "{{ path }}"
+        path: "{{ mypath }}"
         hidden: true 
         recurse: true 
         file_type: any 

@@ -2,7 +2,7 @@
 
 - 
 
-  hosts: all
+  hosts: win 
   
   vars:
 

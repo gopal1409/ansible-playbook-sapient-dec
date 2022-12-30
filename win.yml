@@ -1,0 +1,16 @@
+---
+
+- 
+
+  hosts: all
+  
+  vars:
+
+  tasks:
+    - name: gather information from windows server
+      win_shell: |
+        hostname 
+        Get-Date
+      register: scriptoutput
+    - name: script output 
+      debug: var=scriptoutput.stdout     

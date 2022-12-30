@@ -1,3 +1,3 @@
 client
 redhat
-win
+win ansible_connection powershell
